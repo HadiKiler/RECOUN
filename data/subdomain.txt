@@ -1,9 +1,0 @@
-www.google.com
-mail.google.com
-blog.google.com
-ns1.google.com
-ns2.google.com
-smtp.google.com
-vpn.google.com
-m.google.com
-ns.google.com
