@@ -5,6 +5,9 @@ import dns.resolver
 import requests
 from bs4 import BeautifulSoup
 
+newpath = r'./data' 
+if not os.path.exists(newpath):
+    os.makedirs(newpath)
 
 
 def path():
