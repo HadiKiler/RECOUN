@@ -90,8 +90,7 @@ def subdomainCodeTitle():
     print("<-- finish check status-code sub-domains -->")
 # 44444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
 def  subdomainIp():
-    print("start check ip sub-domains -->")
-    print("writing ips + domains")
+    print("<-- start check ip sub-domains -->")
     with open('data\\subdomain.txt', 'r') as subdomain:
         for line in subdomain:
             if line.rstrip() != "":
@@ -100,7 +99,7 @@ def  subdomainIp():
     print("<-- finish check ip sub-domains -->")
 # 55555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555
 def subdomainIpPort():
-    print("writing ips + domains + ports -->")
+    print("<-- writing ips + domains + ports -->")
     with open('data\\subdomain.txt', 'r') as subdomain:
         for domain in subdomain:
             ativePort = []
