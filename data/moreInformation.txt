@@ -1,0 +1,22 @@
+
+        Domain registrar:", MarkMonitor, Inc.
+
+        WHOIS server:", whois.markmonitor.com
+
+        Domain creation date:", [datetime.datetime(1997, 9, 15, 4, 0), datetime.datetime(1997, 9, 15, 7, 0, tzinfo=datetime.timezone.utc)]
+
+        Domain expiration date:", [datetime.datetime(2028, 9, 14, 4, 0), datetime.datetime(2028, 9, 13, 7, 0, tzinfo=datetime.timezone.utc)]
+
+        Domain last updated:", None
+
+        Name servers:", ['NS1.GOOGLE.COM', 'NS2.GOOGLE.COM', 'NS3.GOOGLE.COM', 'NS4.GOOGLE.COM', 'ns2.google.com', 'ns4.google.com', 'ns3.google.com', 'ns1.google.com']
+
+        Registrant name:", None
+
+        Registrant organization:", Google LLC
+
+        Registrant email:", None
+
+        Registrant phone:", None
+
+        

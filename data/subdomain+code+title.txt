@@ -1,0 +1,6 @@
+mail.google.com 200 Google
+ns1.google.com 200 The Keyword | Google Product and Technology News and Stories
+ns2.google.com 200 The Keyword | Google Product and Technology News and Stories
+smtp.google.com 200 The Keyword | Google Product and Technology News and Stories
+vpn.google.com 200 The Keyword | Google Product and Technology News and Stories
+ns.google.com 200 Browse All of Google's Products & Services - Google

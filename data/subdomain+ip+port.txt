@@ -1,0 +1,13 @@
+www.google.com   142.250.185.132   [80, 443]
+
+mail.google.com   142.250.186.133   [80, 443]
+
+blog.google.com   142.250.185.201   [80, 443]
+
+ns1.google.com   216.239.32.10   [53]
+
+ns2.google.com   216.239.34.10   [53]
+smtp.google.com   142.250.110.27   [25]
+vpn.google.com   64.9.224.68   []
+m.google.com   142.250.186.75   [80, 443]
+ns.google.com   216.239.32.10   [53]

@@ -1,0 +1,17 @@
+www.google.com   emails[]  Numbers['1341241']
+
+mail.google.com   emails[]  Numbers['3333333']
+
+blog.google.com   emails[]  Numbers['256-7597']
+
+ns1.google.com   emails[]  Numbers['256-7597']
+
+ns2.google.com   emails[]  Numbers['256-7597']
+
+smtp.google.com   emails[]  Numbers['256-7597']
+
+vpn.google.com   emails[]  Numbers['256-7597']
+
+m.google.com   emails[]  Numbers['7641084']
+
+ns.google.com   emails[]  Numbers['7641084']
