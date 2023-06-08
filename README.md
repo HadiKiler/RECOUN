@@ -23,3 +23,9 @@ Each file is for one level
 
 
 also you can add subdomains would like for check from **word list full** to **word list**
+
+for run you need to install:<br>
+pip install beautifulsoup4<br>
+pip install requests<br>
+pip install dnspython<br>
+pip install python-whois<br>
