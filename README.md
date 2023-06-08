@@ -20,3 +20,6 @@ chose the level:
 
 main.py will automatically  creats and write a some files in **data** folder that <br>
 Each file is for one level
+
+
+also you can add subdomains would like for check from **word list full** to **word list**
