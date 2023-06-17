@@ -46,12 +46,13 @@ def path():
 
     print("<-- finish check domain and under doamins -->")
 # 22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
-
-
 def subdoamin():
     print("<-- start check sub domains -->")
     domain = url[12:]
-    ns = dns.resolver.query(domain, 'NS')
+    try:
+        ns = dns.resolver.query(domain, 'NS')
+    except:
+        pass
     subdomains = []
     with open('wordlist.txt') as txt:
         for line in txt:
@@ -60,8 +61,7 @@ def subdoamin():
                     server = str(server)
                     subdomain = line.rstrip()
                     try:
-                        answers = dns.resolver.query(
-                            subdomain + "." + domain, "A")
+                        answers = dns.resolver.query(subdomain + "." + domain, "A")
                         for ip in answers:
                             subdomains.append(subdomain + "." + domain)
                     except:
