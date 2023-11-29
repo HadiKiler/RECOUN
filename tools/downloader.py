@@ -1,7 +1,7 @@
 import urllib.request
 import requests
 from bs4 import BeautifulSoup
-
+from pathlib import Path
 
 def delete_query(link):
     if '?' in link:
@@ -11,6 +11,7 @@ def delete_query(link):
 def save_file(url, path=''):
     if not path:
         path = 'files/' 
+    Path(path).mkdir(parents=True, exist_ok=True)
     try:
         response = requests.get(url)
         with open(path + url.split('/')[-1], 'wb') as file:
@@ -20,7 +21,7 @@ def save_file(url, path=''):
 
 def file_urls(url, path=''):
     links = []
-    response = requests.get(url)
+    response = requests.get('https://' + url)
     soup = BeautifulSoup(response.content, "html.parser")
     tags = ['audio','embed','ifreame','img','input','script','source','track','video', 'link']
     for tag in tags:
