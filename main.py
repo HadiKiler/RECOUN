@@ -1,11 +1,13 @@
 import argparse
 from tools.sitemap import *
-from tools.subDomains import *
+from tools.subdomains import *
 from tools.status_title import *
 from tools.ip import *
 from tools.ports import *
 from tools.regex import *
 from tools.who_is import *
+from tools.wappalyzer import *
+from tools.gowitness import *
 
 parser = argparse.ArgumentParser(description='Process app inputs.')
 parser.add_argument('--url', required=True, type=str, help='takes input url.')
@@ -15,6 +17,7 @@ args = parser.parse_args()
 url = args.url
 
 subdomains = get_subdomains(url, 'tools/subdomains.txt')
+witness_path = str(Path(__file__).parent.parent) + '\\files\\gowitness'
 subdomains_info = []
 
 for subdomain in subdomains:
@@ -28,15 +31,30 @@ for subdomain in subdomains:
         'number': regex_finder(url, 'number')
         }
     subdomains_info.append(info)
-    
+
+
 informations = {
     "domain": url,
     'links': get_crawl(url),
+    "subdomains": subdomains_info,
     'whois_info': get_whois(url),
-    "subdomains": subdomains_info
+    'wappalyzer': get_wappalyzer(url),
+    'gowitness': go_witness(url, witness_path)
     }
 
-for item in informations['links']:
-    print(item)
-for item in informations['subdomains']:
-    print(item)
+
+print(informations['domain'])
+print('------------------------------------------------------------')
+for link in informations['links']:
+    print(link)
+print('------------------------------------------------------------')
+for subdomain in informations['subdomains']:
+    print(subdomain)
+print('------------------------------------------------------------')
+for key, value in informations['whois_info'].items():
+    print(f'{key}: {value}')
+print('------------------------------------------------------------')
+for key, value in informations['wappalyzer'].items():
+    print(f'{key}: {value}')
+print('------------------------------------------------------------')
+print(informations['gowitness'])
