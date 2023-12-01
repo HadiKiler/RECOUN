@@ -1,39 +1,77 @@
-import subprocess
-from pathlib import Path
-import os
+# from threading import Thread
+# from time import sleep
 
-def check_folder(folder_path, name):
-    is_there = False
-    files = [files for path, dirs, files in os.walk(folder_path)][0]
-    for file_name in files:
-        if name == file_name:
-            is_there = True
-    return is_there
-            
+# def fruits(fruit):
+#     print(f'start {fruit}')
+#     sleep(1)
+#     print(f'end {fruit}')
+#     return f'{fruit} is Delicious'
 
-def go_witness(url, path, type = 'png'):
-    """insert just path object \n
-        type: png or pdf """
+# def boom():
+#     sleep(1)
+#     print('start boommmmmmmmmm !')
+
+# def peaer():
+#     print('start peaer')
+#     sleep(1)
+#     print('end peaer')
+
+
+
+
+# # tasks = []
+# # for item in range(3):
+# #     task = Thread(target = apple)
+# #     task.start() 
+# #     tasks.append(task)
+
+
+# # for item in tasks:
+# #     item.join()
+
+# # print('me')
+
+
+
+
+# from concurrent.futures import ThreadPoolExecutor
+
+# # with concurrent.futures.ThreadPoolExecutor() as execute:
+# #     inputs = ['apple', 'orange','pear']
+# #     tasks = [execute.submit(fruits, i) for i in inputs]
     
-    url = 'https://' + url
-    # Path(path).mkdir(parents=True, exist_ok=True)
+#     # for task in concurrent.futures.as_completed(tasks):
+#     #     task.result()
+#     # for i in tasks:
+#     #     print(i.result())
 
-    exe_path = str(Path(__file__)).replace('py','exe')
-    arguments = ['--disable-db', '--screenshot-path', path, 'single', url]
-    if type == "pdf":
-        arguments.append(f'--{type}')
+#     # execute.submit(boom)
 
-    for time in range(10):
-        if check_folder(path,f'https-{url}.{type}'):
-            print('yes')
-            break
-        subprocess.call([exe_path, *arguments])
-
-
-path = str(Path(__file__).parent) + '\\files\\gowitness'
-go_witness('divar.com')
+# execute = ThreadPoolExecutor()
+# # execute.submit()      
+# inputs = ['apple', 'orange','pear']
+# tasks = [execute.submit(fruits, i) for i in inputs]
+    
+# for i in tasks:
+#     result = i.result()
+#     print(result)
 
 
+# print('me')
+
+import argparse
+from tools.sitemap import *
+from tools.subdomains import *
+from tools.status_title import *
+from tools.ip import *
+from tools.ports import *
+from tools.regex import *
+from tools.who_is import *
+from tools.wappalyzer import *
+from tools.gowitness import *
+import time
+from concurrent.futures import ThreadPoolExecutor
+execute = ThreadPoolExecutor()
 
 
 
@@ -42,6 +80,20 @@ go_witness('divar.com')
 
 
 
+functions = {
+    get_ip: [url],
+    get_ports: [get_ip(url)],
+    https_sCode_title:[url],
+    regex_finder:[url,"both"]
+    }
+
+info = {}
+names = ['ip', 'ports', 'stautsCode_title', 'email_phone']
+tasks = [execute.submit(fun,*argument) for fun,argument in functions.items()]
+
+for key, value in dict(zip(names, tasks)).items():
+    info[key] = value.result()
+  
 
 
 
