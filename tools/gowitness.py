@@ -26,6 +26,7 @@ def go_witness(url, path, type = 'png'):
         # Go to the Google website
         driver.get(f'https://{url}')
 
+        time.sleep(1)
         # Take a screenshot of the webpage
         driver.save_screenshot(image_path)
 

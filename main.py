@@ -16,7 +16,7 @@ parser.add_argument('--all', type=str, help='Runs the entire program.')
 args = parser.parse_args()
 url = args.url
 
-witness_path = str(Path(__file__).parent) + '\\files\\gowitness'
+witness_path = os.path.join(Path(__file__).parent, 'files/gowitness')
 start = time.time()
 
 functions = {
