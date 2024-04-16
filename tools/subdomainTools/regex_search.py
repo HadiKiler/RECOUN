@@ -17,7 +17,7 @@ def finder(pattern, content):
 
 
 
-def regex_finder(url, type = 'both', pattern = ''):
+def regex_finder(url, type = 'both'):
     """insert url without protocol \n
         type: email or phoneNumber"""
     email_pattern = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b"
@@ -25,7 +25,10 @@ def regex_finder(url, type = 'both', pattern = ''):
     try:
         content = requests.get('https://' + url).text
     except:
-        content = ""
+        try:
+            content = requests.get('http://' + url).text
+        except:
+            content = ""
 
 
     if type == 'both':
@@ -41,7 +44,6 @@ def regex_finder(url, type = 'both', pattern = ''):
     elif type == "number":
         pattern = number_pattern
         return finder(pattern, content)
-    elif pattern == '' and type == '':
+    elif type == '':
         return
-    
-    
+

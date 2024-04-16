@@ -16,5 +16,10 @@ def https_sCode_title(domain):
         title = get_title(response)
         return f'{title} - {response.status_code}'
     except:
-        return f'statusCode" and title, field'
+        try:
+            response = requests.get('http://' + domain)
+            title = get_title(response)
+            return f'{title} - {response.status_code}'
+        except:
+            return f'statusCode" and title, field'
 

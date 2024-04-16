@@ -17,7 +17,6 @@ def get_info(url):
         https_sCode_title:[url],
         regex_finder:[url,"both"]
         }
-    
     info = {
         'domain':url
         }
@@ -33,24 +32,25 @@ def get_info(url):
 def check(domain, subdomain, method="A"):
     subdomains = []
     try:
-        answers = dns.resolver.resolve(subdomain + "." + domain, "A")
+        answers = dns.resolver.query(subdomain + "." + domain, "A")
         for ip in answers:
             if method == "A":
                 subdomains.append(subdomain + "." + domain)
             if method == "B":
                 subdomains.append(subdomain + "." + domain + " - " + str(ip))
     except:
-        return 
+        return
     return list(set(subdomains))
             
 
 
-def get_subdomains(domain, file_name, test=50 , method="A"):
+
+def get_subdomains(domain, file_name, test=50):
     activates = []
     with open(file_name) as file:
         tasks = []
         for index,sub in enumerate(file):
-            if index>test: break
+            if index > test: break
             tasks.append(execute.submit(check, domain, sub.strip()))
         
         for item in tasks:

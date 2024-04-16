@@ -30,7 +30,7 @@ functions = {
 informations = {
     'domain': url
 }
-names = ['links', 'gowitness', 'subdomains', 'whois', 'wappalyzer']
+names = ['links','subdomains', 'gowitness', 'whois', 'wappalyzer']
 tasks = [execute.submit(fun,*argument) for fun,argument in functions.items()]
 
 for key, value in dict(zip(names, tasks)).items():
@@ -40,19 +40,21 @@ for key, value in dict(zip(names, tasks)).items():
 
 print(informations['domain'])
 print('------------------------------------------------------------')
-# for link in informations['links']:
-#     print(link)
+for link in informations['links']:
+    print(link)
 print('------------------------------------------------------------')
 for subdomain in informations['subdomains']:
     print(subdomain)
 print('------------------------------------------------------------')
-# for key, value in informations['whois'].items():
-#     print(f'{key}: {value}')
+for key, value in informations['whois'].items():
+    print(f'{key}: {value}')
 print('------------------------------------------------------------')
-# for key, value in informations['wappalyzer'].items():
-#     print(f'{key}: {value}')
+for key, value in informations['wappalyzer'].items():
+    print(f'{key}: {value}')
 print('------------------------------------------------------------')
 print(informations['gowitness'])
+
+
 
 
 print(time.time()-start)

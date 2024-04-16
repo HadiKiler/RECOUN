@@ -5,22 +5,35 @@ import tldextract
 
 
 def get_links(domain):
-    response = requests.get(domain,timeout=4)
+    try:
+        response = requests.get(domain,timeout=4)
+    except:
+        return []
     soup = BeautifulSoup(response.content, "html.parser")
     links = []
+
+    ext = tldextract.extract(domain)
+    sld = ext.domain
+    tld = ext.suffix
+    main_domain = f"{domain.split('/')[0]}//{sld}.{tld}" # extract base url for links
+
     for link in soup.find_all("a"):
         href = link.get("href")
-        if href is not None and href.startswith('http'):
+        if href and href.startswith('/'):
+            links.append(f"{main_domain}{href}")
+        if href and href.startswith('http'):
             links.append(href)
     return links
 
 
 def filter_others(url, links):
-    ext = tldextract.extract(url)
-    sld = ext.domain
-    tld = ext.suffix
-    domain_name = f'{sld}.{tld}'
-    return [link for link in links if domain_name in link]
+    # ext = tldextract.extract(url)
+    # sld = ext.domain
+    # tld = ext.suffix
+    # domain_name = f'{sld}.{tld}'
+    # return [link for link in links if domain_name in link]
+
+    return [link for link in links if url in link]
 
 
 def get_crawl(url, depth=2):
@@ -35,14 +48,10 @@ def get_crawl(url, depth=2):
             links.append(link)
             depth -= 1
             crawl(link, depth)
-    try:
-        crawl(url1, depth)
-    except:
-        pass
-    try:
-        crawl(url2, depth)
-    except:
-        pass
+    
+    crawl(url1, depth) # request to https
+    crawl(url2, depth) # request to http
+    
     links = list(set(links))
     links.sort()
-    return links
+    return filter_others(url, links)
