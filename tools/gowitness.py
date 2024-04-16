@@ -2,13 +2,10 @@ import subprocess
 from pathlib import Path
 import os
 from selenium import webdriver
-from PIL import Image
 import os
 import time
 from selenium import webdriver
-from django.core.files.base import ContentFile
-
-            
+         
 
 def go_witness(url, path, type = 'png'):
     """insert just path object \n
