@@ -17,11 +17,13 @@ args = parser.parse_args()
 url = args.url
 
 witness_path = os.path.join(Path(__file__).parent, 'files/gowitness')
+subdoamin_path = os.path.join(Path(__file__).parent , 'tools/subdomainTools/subdomains.txt')
+
 start = time.time()
 
 functions = {
     get_crawl:[url],
-    get_subdomains: [url, 'tools/subdomainTools/subdomains.txt'],
+    get_subdomains: [url, subdoamin_path],
     go_witness: [url, witness_path],
     get_whois:[url],
     get_wappalyzer:[url]
