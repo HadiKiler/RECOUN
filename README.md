@@ -6,8 +6,8 @@ the information that is provided to you includes all the web paths, all active s
 as well as a photo of the desired website that is saved in the files/gowitness path,<br>
 displaying information about website building technologies and whois information.<br>
 To use, you need to run<br>
-<b>pip install -r requirements.txt </b><br>
+`pip install -r requirements.txt`<br>
 command You have to install the prerequisites of the program<br>
 Then all you have to do is run the main file with the url argument as the desired site, such as<br>
-<b>python main.py --url google.com </b><br>
+`python main.py --url google.com`<br>
 But be careful to enter the address without subdomain and protocol, enjoy!<br>
