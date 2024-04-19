@@ -11,3 +11,4 @@ command You have to install the prerequisites of the program<br>
 Then all you have to do is run the main file with the url argument as the desired site, such as<br>
 `python main.py --url google.com`<br>
 But be careful to enter the address without subdomain and protocol, enjoy!<br>
+note : for image from website you should have google-chrome on your system.
